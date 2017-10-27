@@ -10,7 +10,7 @@
 
     <!--Description-->
     
-        <meta name="description" content="Chacha&#39;s Blog">
+        <meta name="description" content="SJTU 数据库技术_笔记">
     
 
     <!--Author-->
@@ -20,12 +20,12 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="chacha"/>
+        <meta property="og:title" content="DataBaseTechnology_Part2"/>
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="Chacha&#39;s Blog" />
+        <meta property="og:description" content="SJTU 数据库技术_笔记" />
     
 
     <!--Open Graph Site Name-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -44,7 +44,7 @@
 
     <!-- Title -->
     
-    <title>Archiv: 2017/10 - chacha</title>
+    <title>DataBaseTechnology_Part2 - chacha</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
@@ -146,101 +146,139 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('/img/3.jpeg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2017/10</h1>
+                <div class="post-heading">
+                    <h1>DataBaseTechnology_Part2</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-10-27
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/DataBaseTechnology/">#DataBaseTechnology</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/DataBaseTechnology/">DataBaseTechnology</a>
+
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2017/10/27/DataBase_Chapter1/">
-        <h1 class="post-title archive">
-            DataBaseTechnology_Part1
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-27
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2017/10/27/MySQL Isolation Levels/">
-        <h1 class="post-title archive">
-            MySQL Isolation Levels
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/10/27/Sublime Text 3 快捷键索引（Mac OS)/">
-        <h1 class="post-title archive">
-            Sublime Text 3 快捷键索引（Mac OS)
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/10/27/DataBase_Chapter3/">
-        <h1 class="post-title archive">
-            DataBaseTechnology_Part3
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-27
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2017/10/27/DataBase_chapter2/">
-        <h1 class="post-title archive">
-            DataBaseTechnology_Part2
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2017-10-27
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><p>一个索引中包含指定列的所有值及其相应的存储位置</p>
+<h1 id="数据库安全性"><a href="#数据库安全性" class="headerlink" title="数据库安全性"></a>数据库安全性</h1><h2 id="安全基本要素"><a href="#安全基本要素" class="headerlink" title="安全基本要素"></a>安全基本要素</h2><p>基本概念：</p>
+<p>安全，低于可能的风险和威胁的能力，一般只关心由于人为因素所产生的风险和威胁。</p>
+<p>威胁(threats):对安全的潜在破坏。这种破坏不一定等实际发生才构成威胁</p>
+<p>攻击(attack):可能导致破坏的行为，发起人被称为攻击者</p>
+<p>基本要素：Confidentiality/Integrity/Availability/Non-repudiation(不可抵赖性)/可审计性</p>
+<h2 id="数据库安全控制机制"><a href="#数据库安全控制机制" class="headerlink" title="数据库安全控制机制"></a>数据库安全控制机制</h2><ul>
+<li>(基于口令的)用户鉴别(散列函数/OTP/智能卡/生物特征）</li>
+<li>存取控制（包括自主存取控制 Discretionary Access Control DAC,强制存取控制 Mandatory Access Control MAC)<ul>
+<li>用户权限定义</li>
+<li>权限检查机制</li>
 </ul>
+</li>
+</ul>
+<h3 id="自助存取控制方法"><a href="#自助存取控制方法" class="headerlink" title="自助存取控制方法"></a>自助存取控制方法</h3><ul>
+<li>授权GRANT </li>
+</ul>
+<p>GRANT &lt;权限&gt;[,&lt;权限&gt;]…<br>ON &lt;对象类型&gt; &lt;对象名&gt;<br>TO &lt;用户&gt;[,&lt;用户&gt;]…<br>[WITH GRANT OPTION];</p>
+<p>所有权限（ALL PREVILIGES）所有用户（PUBLIC）</p>
+<ul>
+<li>权限回收revoke</li>
+</ul>
+<p>REVOKE &lt;权限&gt;[,&lt;权限&gt;]…<br>ON &lt;对象类型&gt; &lt;对象名&gt;<br>FROM &lt;用户&gt;[,&lt;用户&gt;]…;</p>
+<p>CASCADE级联收回</p>
+<h3 id="数据库角色"><a href="#数据库角色" class="headerlink" title="数据库角色"></a>数据库角色</h3><p>被命名的一组与数据库操作相关的权限</p>
+<ul>
+<li>角色是权限的集合</li>
+<li>可以为一组具有相同权限的用户创建一个角色</li>
+</ul>
+<p>通过角色来实现将一组权限授予一个用户。 步骤如下:</p>
+<ol>
+<li>首先创建一个角色 R1<br><code>CREATE ROLE R1;</code></li>
+<li>然后使用GRANT语句，使角色R1拥有Student表的SELECT、 UPDATE、INSERT权限<br><code>GRANT SELECT，UPDATE，INSERT ON TABLE Student
+TO R1;</code></li>
+<li>将这个角色授予王平，张明，赵玲。使他们具有角色R1所包含的 全部权限<br><code>GRANT R1
+TO 王平，张明，赵玲;</code></li>
+<li>可以一次性通过R1来回收王平的这3个权限<br><code>REVOKE R1 FROM 王平;</code></li>
+</ol>
+<h3 id="强制存取控制方法"><a href="#强制存取控制方法" class="headerlink" title="强制存取控制方法"></a>强制存取控制方法</h3><ul>
+<li>主体是系统中的活动实体<ul>
+<li>DBMS所管理的实际用户 </li>
+<li>代表用户的各进程</li>
+</ul>
+</li>
+<li>客体是系统中受主体操纵的被动实体:文件、基表、索引、视图 </li>
+<li>敏感度标记(Label)<ul>
+<li>绝密(Top Secret) </li>
+<li>机密(Secret)</li>
+<li>可信(Confidential) </li>
+<li>公开(Public)</li>
+</ul>
+</li>
+<li>主体的敏感度标记称为许可证级别(Clearance Level) </li>
+<li>客体的敏感度标记称为密级(Classification Level)</li>
+<li>强制存取控制规则<ul>
+<li>仅当主体的许可证级别大于或等于客体的密级时，该主体才能读取相应<br>的客体</li>
+<li>仅当主体的许可证级别等于客体的密级时，该主体才能写相应的客体 (禁止了拥有高许可证级别的主体更新低密级的数据对象)</li>
+</ul>
+</li>
+</ul>
+<p><mark>SQL语法分析&amp;语义检查-&gt;DAC检查-&gt;MAC检查-&gt;继续语义检查</mark></p>
+<h2 id="视图机制"><a href="#视图机制" class="headerlink" title="视图机制"></a>视图机制</h2><p>把要保密的数据对无权存取这些数据的用户 隐藏起来，对数据提供一定程度的安全保护</p>
+<h2 id="审计"><a href="#审计" class="headerlink" title="审计"></a>审计</h2><h2 id="数据加密"><a href="#数据加密" class="headerlink" title="数据加密"></a>数据加密</h2>
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

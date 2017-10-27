@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="MySQL Isolation Levels">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Chacha Chen">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="MySQL Isolation Levels"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="MySQL Isolation Levels" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="chacha"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>MySQL Isolation Levels - chacha</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/Chacha-Chen">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/3.jpeg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>MySQL Isolation Levels</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2017-10-27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/DataBaseTechnology/">#DataBaseTechnology</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/DataBaseTechnology/">DataBaseTechnology</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="MySQL-Isolation-Levels"><a href="#MySQL-Isolation-Levels" class="headerlink" title="MySQL Isolation Levels"></a>MySQL Isolation Levels</h1><ul>
+<li>READ_UNCOMMITTED</li>
+<li>READ_COMMITTED</li>
+<li>REPEATABLE_READ (default)</li>
+<li>SERIALIZABLE</li>
+</ul>
+<p>InnoDB supports each of the transaction isolation levels described here using <mark>different locking strategies</mark>.</p>
+<h2 id="Situation"><a href="#Situation" class="headerlink" title="Situation"></a>Situation</h2><p>REPEATABLE_READ (default)  </p>
+<p>SERIALIZABLE: enforces even stricter rules, and is used mainly in specialized situations, such as with XA transactions and for troubleshooting issues with concurrency and deadlocks.</p>
+<p>READ_COMMITTED &amp; READ_UNCOMMITTED: in situations such as bulk reporting where precise consistency and repeatable results are less important than <mark>minimizing the amount of overhead for locking</mark>. </p>
+<h2 id="REPEATABLE-READ"><a href="#REPEATABLE-READ" class="headerlink" title="REPEATABLE_READ"></a>REPEATABLE_READ</h2><p>snapshot<br>A representation of data at a particular time。 which remains the same even as changes are committed by other transactions. Used by certain isolation levels to <mark>allow consistent reads</mark>.</p>
+<p>###consistent non-locking read:</p>
+<ul>
+<li>plain SELECT statements</li>
+</ul>
+<p>同一个transaction内的读操作是一致的，在第一次select操作时生成了一个现有表的snapshot，之后的读都从这个snapshot中读。</p>
+<h3 id="locking-reads"><a href="#locking-reads" class="headerlink" title="locking reads"></a>locking reads</h3><ul>
+<li>SELECT with FOR UPDATE or LOCK IN SHARE MODE</li>
+<li>UPDATE</li>
+<li>DELETE</li>
+</ul>
+<p>For a unique index with a unique search condition, InnoDB locks only the index record found, not the gap before it.</p>
+<p>For other search conditions, InnoDB locks the <em>index range scanned</em>, using gap locks or next-key locks to block insertions by other sessions into the gaps covered by the range. </p>
+<h2 id="READ-COMMITTED"><a href="#READ-COMMITTED" class="headerlink" title="READ COMMITTED"></a>READ COMMITTED</h2><p>Each consistent read, even within the same transaction, sets and reads its own fresh snapshot. (但注意snapshot只会在修改提交后在取得新的snapshot）</p>
+<h3 id="For-locking-reads"><a href="#For-locking-reads" class="headerlink" title="For locking reads"></a>For locking reads</h3><ul>
+<li>SELECT with FOR UPDATE or LOCK IN SHARE MODE</li>
+<li>UPDATE statements</li>
+<li>DELETE statements<br>InnoDB locks only index records, not the gaps before them, and thus permits the free insertion of new records next to locked records. Gap locking is only used for foreign-key constraint checking and duplicate-key checking.</li>
+</ul>
+<p>一般来说，gap locking is disabled，所以可能有phantom幻影现象，即同一事务第二次读出现新刚insert的row。</p>
+<p>For UPDATE or DELETE statements, InnoDB holds locks only for rows that it updates or deletes. Record locks for nonmatching rows are released after MySQL has evaluated the WHERE condition. This greatly reduces the probability of deadlocks, but they can still happen.</p>
+<p>For UPDATE statements, if a row is already locked, InnoDB performs a “semi-consistent” read, returning the latest committed version to MySQL so that MySQL can determine whether the row matches the WHERE condition of the UPDATE. If the row matches (must be updated), MySQL reads the row again and this time InnoDB either locks it or waits for a lock on it.</p>
+<h2 id="READ-UNCOMMITTED"><a href="#READ-UNCOMMITTED" class="headerlink" title="READ UNCOMMITTED"></a>READ UNCOMMITTED</h2><p>SELECT statements are performed in a nonlocking fashion, but a possible earlier version of a row might be used. Thus, using this isolation level, such reads are not consistent. This is also called a dirty read. Otherwise, this isolation level works like READ COMMITTED.</p>
+<h2 id="SERIALIZABLE"><a href="#SERIALIZABLE" class="headerlink" title="SERIALIZABLE"></a>SERIALIZABLE</h2><p>This level is like REPEATABLE READ, but InnoDB implicitly <mark>converts all plain SELECT statements to SELECT … LOCK IN SHARE MODE if autocommit is disabled</mark>. If autocommit is enabled, the SELECT is its own transaction. It therefore is known to be read only and can be serialized if performed as a consistent (nonlocking) read and need not block for other transactions. (To force a plain SELECT to block if other transactions have modified the selected rows, disable autocommit.)</p>
+<p>#Consistent Nonlocking Reads</p>
+<p>A consistent read means that InnoDB uses <mark>multi-versioning</mark> to present to a query a snapshot of the database at a point in time. <strong>The query sees the changes made by transactions that committed before that point of time, and no changes made by later or uncommitted transactions.</strong> <mark>The exception to this rule is that the query sees the changes made by earlier statements <strong>within the same transaction</strong>.</mark> This exception causes the following anomaly: If you update some rows in a table, a SELECT sees the latest version of the updated rows, but it might also see older versions of any rows. If other sessions simultaneously update the same table, the anomaly means that you might see the table in a state that never existed in the database.</p>
+<p>The exception to this rule is that the query sees the changes made by earlier statements within the same transaction. </p>
+<ul>
+<li><p>REPEATABLE READ (the default level), all consistent reads within the same transaction read the snapshot established by the first such read in that transaction. You can get a fresher snapshot for your queries by committing the current transaction and after that issuing new queries.</p>
+</li>
+<li><p>READ COMMITTED isolation level, each consistent read within a transaction sets and reads its own fresh snapshot.</p>
+</li>
+</ul>
+<p><mark>Consistent read is the default mode in which InnoDB processes SELECT statements in READ COMMITTED and REPEATABLE READ isolation levels. A consistent read does not set any locks on the tables it accesses, and therefore other sessions are free to modify those tables at the same time a consistent read is being performed on the table.</mark></p>
+<p> A consistent read does not set any locks on the tables it accesses, and therefore other sessions are free to modify those tables at the same time a consistent read is being performed on the table.</p>
+<p>InnoDB gives your transaction a timepoint according to which your query sees the database. If another transaction deletes a row and commits after your timepoint was assigned, you do not see the row as having been deleted. Inserts and updates are treated similarly.</p>
+<p>an ordinary SELECT statement-&gt;issue a consistent read mode-&gt;no locks on the tables-&gt;other sessions are free to modify（but the table you see is from the transaction timepoint, later changes cannot be seen)</p>
+<p>所以，READ COMMITTED&amp;REPEATABLE READ，</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/Chacha-Chen" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 Chacha Chen<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
